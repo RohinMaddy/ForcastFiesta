@@ -13,6 +13,8 @@ protocol WeatherManagerProtocol {
     func didFailWithError(error: Error)
 }
 
+let OPEN_WEATHER_API_KEY = apiKey
+
 struct WeatherManager {
     var delegate: WeatherManagerProtocol?
     let baseUrl = "https://api.openweathermap.org/data/2.5/weather?appid=\(OPEN_WEATHER_API_KEY)&units=metric"
@@ -29,7 +31,6 @@ struct WeatherManager {
     
     func processRequest(urlString: String) {
         if let url = URL(string: urlString) {
-            print(url)
             
             let session = URLSession(configuration: .default)
             
