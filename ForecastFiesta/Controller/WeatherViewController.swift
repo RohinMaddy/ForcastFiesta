@@ -52,7 +52,9 @@ extension WeatherViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        let alert = UIAlertController(title: "Error", message: "Failed to get location: \(error.localizedDescription)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
 
@@ -66,7 +68,9 @@ extension WeatherViewController: WeatherManagerProtocol {
     }
     
     func didFailWithError(error: Error) {
-        print(error)
+        let alert = UIAlertController(title: "Error", message: "Failed to weather data: \(error.localizedDescription)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
 
