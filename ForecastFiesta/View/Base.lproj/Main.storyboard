@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,13 +20,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xyR-qI-WMP">
-                                <rect key="frame" x="20" y="59" width="353" height="759"/>
+                                <rect key="frame" x="20" y="118" width="353" height="666"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Duw-Fy-jXO">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4WH-Da-MSn">
-                                                <rect key="frame" x="0.0" y="1" width="40" height="38.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.66666666666666785" width="40" height="38.666666666666657"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="mbZ-hG-lye"/>
                                                     <constraint firstAttribute="height" constant="40" id="osZ-yK-dXR"/>
@@ -96,7 +96,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SoG-3Z-rNO">
-                                        <rect key="frame" x="113" y="355.66666666666674" width="240" height="403.33333333333326"/>
+                                        <rect key="frame" x="113" y="355.66666666666674" width="240" height="310.33333333333326"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -119,6 +119,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="pBv-EJ-Ml9" id="5ia-Lc-UHj"/>
                         <outlet property="cityLabel" destination="C2k-KJ-DZy" id="Brc-Lv-FjY"/>
                         <outlet property="conditionImageView" destination="RXX-iX-g0y" id="qGY-x7-Hwu"/>
                         <outlet property="searchTextField" destination="Mo6-Fe-Ufr" id="nGg-6m-ZGw"/>

@@ -11,6 +11,7 @@ import CoreLocation
 class WeatherViewController: UIViewController {
 
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -59,6 +60,20 @@ extension WeatherViewController: CLLocationManagerDelegate {
 }
 
 extension WeatherViewController: WeatherManagerProtocol {
+    
+    func updateWeatherBackgroundImage(imageUrl: String) {
+        guard let url = URL(string: imageUrl) else { return }
+
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self, let data = data, error == nil else { return }
+            if let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.backgroundImage.image = image
+                }
+            }
+        }.resume()
+    }
+    
     func didUpdateWeather(weather: WeatherModel) {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.tempString
