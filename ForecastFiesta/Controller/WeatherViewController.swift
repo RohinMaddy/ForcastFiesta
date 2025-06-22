@@ -11,6 +11,8 @@ import CoreLocation
 class WeatherViewController: UIViewController {
 
     
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -29,16 +31,28 @@ class WeatherViewController: UIViewController {
         
         searchTextField.delegate = self
         weatherManager.delegate = self
+        
+        addBlurBackground(to: labelView)
+        labelView.roundCorners(radius: 10)
     }
 
     @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
         locationManager.requestLocation()
     }
+    
     @IBAction func searchPressed(_ sender: UIButton) {
         searchTextField.endEditing(true)
         if let city = searchTextField.text {
             weatherManager.fetchWeather(cityName: city)
         }
+    }
+    
+    func addBlurBackground(to view: UIView, style: UIBlurEffect.Style = .light) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = view.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.insertSubview(blurView, at: 0)
     }
 }
 
