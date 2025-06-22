@@ -33,7 +33,10 @@ class WeatherViewController: UIViewController {
         searchTextField.delegate = self
         weatherManager.delegate = self
         
-        addBlurBackground(to: labelView)
+        addBlurBackground(to: searchView, style: .systemUltraThinMaterial)
+        searchView.roundCorners(radius: 10)
+        
+        addBlurBackground(to: labelView, style: .systemUltraThinMaterial)
         labelView.roundCorners(radius: 10)
         
         showWeatherLoading()
