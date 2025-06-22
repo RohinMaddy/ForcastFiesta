@@ -21,6 +21,7 @@ class WeatherViewController: UIViewController {
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
+    var weatherLoadingOverlay: WeatherLoadingOverlay?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +35,26 @@ class WeatherViewController: UIViewController {
         
         addBlurBackground(to: labelView)
         labelView.roundCorners(radius: 10)
+        
+        showWeatherLoading()
     }
 
     @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
         locationManager.requestLocation()
+        showWeatherLoading()
     }
     
     @IBAction func searchPressed(_ sender: UIButton) {
-        searchTextField.endEditing(true)
-        if let city = searchTextField.text {
-            weatherManager.fetchWeather(cityName: city)
+        if searchTextField.text == "" || searchTextField.text?.isEmpty ?? true {
+            let alert = UIAlertController(title: "Error", message: "Enter location", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+        } else {
+            if let city = searchTextField.text {
+                self.showWeatherLoading()
+                weatherManager.fetchWeather(cityName: city)
+                searchTextField.endEditing(true)
+            }
         }
     }
     
@@ -54,6 +65,19 @@ class WeatherViewController: UIViewController {
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.insertSubview(blurView, at: 0)
     }
+
+    func showWeatherLoading() {
+        weatherLoadingOverlay = WeatherLoadingOverlay(frame: view.bounds)
+        if let overlay = weatherLoadingOverlay {
+            view.addSubview(overlay)
+        }
+    }
+
+    func hideWeatherLoading() {
+        weatherLoadingOverlay?.stop()
+        weatherLoadingOverlay = nil
+    }
+
 }
 
 extension WeatherViewController: CLLocationManagerDelegate {
@@ -67,6 +91,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        hideWeatherLoading()
         let alert = UIAlertController(title: "Error", message: "Failed to get location: \(error.localizedDescription)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
@@ -83,6 +108,7 @@ extension WeatherViewController: WeatherManagerProtocol {
             if let image = UIImage(data: data) {
                 DispatchQueue.main.async {
                     self.backgroundImage.image = image
+                    self.hideWeatherLoading()
                 }
             }
         }.resume()
@@ -97,6 +123,7 @@ extension WeatherViewController: WeatherManagerProtocol {
     }
     
     func didFailWithError(error: Error) {
+        hideWeatherLoading()
         let alert = UIAlertController(title: "Error", message: "Failed to weather data: \(error.localizedDescription)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
@@ -106,6 +133,7 @@ extension WeatherViewController: WeatherManagerProtocol {
 extension WeatherViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let city = searchTextField.text {
+            self.showWeatherLoading()
             weatherManager.fetchWeather(cityName: city)
         }
         searchTextField.endEditing(true)

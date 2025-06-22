@@ -34,13 +34,11 @@ struct WeatherManager {
     
     func processRequest(urlString: String) {
         if let url = URL(string: urlString) {
-            
             let session = URLSession(configuration: .default)
             
             let task = session.dataTask(with: url) { data, response, error in
                 if error != nil {
                     self.delegate?.didFailWithError(error: error!)
-                    return
                 }
                 if let safeData  = data {
                     if let weather = self.parseJsonData(data: safeData) {
@@ -72,7 +70,6 @@ struct WeatherManager {
         let task = session.dataTask(with: request) { data, response, error in
             if let error = error {
                 self.delegate?.didFailWithError(error: error)
-                return
             }
             
             if let data = data {
@@ -81,7 +78,6 @@ struct WeatherManager {
                     self.delegate?.updateWeatherBackgroundImage(imageUrl: pixel.photos[0].src.portrait)
                 } catch {
                     self.delegate?.didFailWithError(error: error)
-                    return
                 }
                 
             }
@@ -97,7 +93,9 @@ struct WeatherManager {
             return weatherModel
             
         } catch {
-            delegate?.didFailWithError(error: error)
+            DispatchQueue.main.async {
+                self.delegate?.didFailWithError(error: error)
+            }
             return nil
         }
     }
