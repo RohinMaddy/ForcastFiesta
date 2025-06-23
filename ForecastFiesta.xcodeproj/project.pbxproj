@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9BAA29E12E06F694006E4C21 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA29E02E06F694006E4C21 /* Pixel.swift */; };
+		9BAA29E32E083EC6006E4C21 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA29E22E083EC6006E4C21 /* Extensions.swift */; };
+		9BAA29E52E0847AB006E4C21 /* WeatherLoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA29E42E0847AB006E4C21 /* WeatherLoadingOverlay.swift */; };
+		9BAA29E82E097E05006E4C21 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAA29E72E097E05006E4C21 /* Lottie */; };
+		9BAA29EA2E097E05006E4C21 /* Lottie-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAA29E92E097E05006E4C21 /* Lottie-Dynamic */; };
 		9BD6472E2BDE801700DCC1CA /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6472D2BDE801700DCC1CA /* Keys.swift */; };
 		9BD724BE2BDE5B54002DA989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD724BD2BDE5B54002DA989 /* AppDelegate.swift */; };
 		9BD724C02BDE5B54002DA989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD724BF2BDE5B54002DA989 /* SceneDelegate.swift */; };
@@ -20,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9BAA29E02E06F694006E4C21 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
+		9BAA29E22E083EC6006E4C21 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9BAA29E42E0847AB006E4C21 /* WeatherLoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoadingOverlay.swift; sourceTree = "<group>"; };
 		9BD6472D2BDE801700DCC1CA /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		9BD724BA2BDE5B54002DA989 /* ForecastFiesta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForecastFiesta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD724BD2BDE5B54002DA989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BAA29E82E097E05006E4C21 /* Lottie in Frameworks */,
+				9BAA29EA2E097E05006E4C21 /* Lottie-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +61,7 @@
 				9BD724D12BDE790E002DA989 /* WeatherManager.swift */,
 				9BD724D32BDE7924002DA989 /* WeatherData.swift */,
 				9BD724D52BDE7932002DA989 /* WeatherModel.swift */,
+				9BAA29E02E06F694006E4C21 /* Pixel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -61,6 +72,7 @@
 				9BD724BD2BDE5B54002DA989 /* AppDelegate.swift */,
 				9BD724BF2BDE5B54002DA989 /* SceneDelegate.swift */,
 				9BD6472D2BDE801700DCC1CA /* Keys.swift */,
+				9BAA29E22E083EC6006E4C21 /* Extensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -105,6 +117,7 @@
 		9BD724D82BDE7DEC002DA989 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9BAA29E42E0847AB006E4C21 /* WeatherLoadingOverlay.swift */,
 				9BD724C32BDE5B54002DA989 /* Main.storyboard */,
 				9BD724C82BDE5B55002DA989 /* LaunchScreen.storyboard */,
 			);
@@ -155,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 9BD724B12BDE5B54002DA989;
+			packageReferences = (
+				9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 9BD724BB2BDE5B54002DA989 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,11 +199,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD724C22BDE5B54002DA989 /* WeatherViewController.swift in Sources */,
+				9BAA29E32E083EC6006E4C21 /* Extensions.swift in Sources */,
 				9BD724D42BDE7924002DA989 /* WeatherData.swift in Sources */,
 				9BD724BE2BDE5B54002DA989 /* AppDelegate.swift in Sources */,
 				9BD724D22BDE790E002DA989 /* WeatherManager.swift in Sources */,
 				9BD6472E2BDE801700DCC1CA /* Keys.swift in Sources */,
 				9BD724D62BDE7932002DA989 /* WeatherModel.swift in Sources */,
+				9BAA29E52E0847AB006E4C21 /* WeatherLoadingOverlay.swift in Sources */,
+				9BAA29E12E06F694006E4C21 /* Pixel.swift in Sources */,
 				9BD724C02BDE5B54002DA989 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +436,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9BAA29E72E097E05006E4C21 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		9BAA29E92E097E05006E4C21 /* Lottie-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = "Lottie-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BD724B22BDE5B54002DA989 /* Project object */;
 }
