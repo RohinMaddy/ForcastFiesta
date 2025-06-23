@@ -7,10 +7,12 @@
 
 import UIKit
 import CoreLocation
+import Lottie
 
 class WeatherViewController: UIViewController {
 
     
+    @IBOutlet weak var weatherAnimationView: LottieAnimationView!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!

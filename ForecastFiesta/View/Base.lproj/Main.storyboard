@@ -82,14 +82,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="uU1-jw-kVL">
                                                 <rect key="frame" x="0.0" y="10" width="348" height="294"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RXX-iX-g0y">
-                                                        <rect key="frame" x="228" y="0.0" width="120" height="120"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rot-IZ-Hg4" customClass="LottieAnimationView" customModule="Lottie">
+                                                        <rect key="frame" x="108" y="0.0" width="240" height="120"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="120" id="5fF-Po-USs"/>
-                                                            <constraint firstAttribute="width" constant="120" id="MgW-lH-Sja"/>
+                                                            <constraint firstAttribute="height" constant="120" id="Zjz-PA-Wcs"/>
                                                         </constraints>
-                                                    </imageView>
+                                                    </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bd-Zz-JP4">
                                                         <rect key="frame" x="134.33333333333337" y="129" width="213.66666666666663" height="117"/>
                                                         <subviews>
@@ -152,11 +151,11 @@
                     <connections>
                         <outlet property="backgroundImage" destination="pBv-EJ-Ml9" id="5ia-Lc-UHj"/>
                         <outlet property="cityLabel" destination="C2k-KJ-DZy" id="Brc-Lv-FjY"/>
-                        <outlet property="conditionImageView" destination="RXX-iX-g0y" id="qGY-x7-Hwu"/>
                         <outlet property="labelView" destination="J7s-8I-T1t" id="RBb-27-n4q"/>
                         <outlet property="searchTextField" destination="Mo6-Fe-Ufr" id="nGg-6m-ZGw"/>
                         <outlet property="searchView" destination="pNL-vU-NFd" id="fSK-yd-hOb"/>
                         <outlet property="temperatureLabel" destination="3H2-aI-oMf" id="40w-WY-1PB"/>
+                        <outlet property="weatherAnimationView" destination="Rot-IZ-Hg4" id="ZGM-v8-6MI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -167,7 +166,6 @@
     <resources>
         <image name="location.circle.fill" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
-        <image name="sun.max" catalog="system" width="128" height="125"/>
         <image name="weather bg" width="1080" height="1920"/>
         <systemColor name="secondarySystemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
