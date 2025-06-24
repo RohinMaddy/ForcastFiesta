@@ -16,7 +16,6 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var labelView: UIView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
@@ -35,10 +34,10 @@ class WeatherViewController: UIViewController {
         searchTextField.delegate = self
         weatherManager.delegate = self
         
-        addBlurBackground(to: searchView, style: .systemUltraThinMaterial)
+        addBlurBackground(to: searchView, style: .systemUltraThinMaterialDark)
         searchView.roundCorners(radius: 10)
         
-        addBlurBackground(to: labelView, style: .systemUltraThinMaterial)
+        addBlurBackground(to: labelView, style: .systemUltraThinMaterialDark)
         labelView.roundCorners(radius: 10)
         
         showWeatherLoading()
@@ -82,6 +81,19 @@ class WeatherViewController: UIViewController {
         weatherLoadingOverlay?.stop()
         weatherLoadingOverlay = nil
     }
+    
+    func loadWeatherAnimation(path: String) {
+        if let path = Bundle.main.path(forResource: path, ofType: "lottie") {
+            let url = URL(fileURLWithPath: path)
+            DotLottieFile.loadedFrom(url: url) { result in
+                guard case Result.success(let lottie) = result else { return }
+                
+                self.weatherAnimationView.loadAnimation(from: lottie)
+                self.weatherAnimationView.loopMode = .loop
+                self.weatherAnimationView.play()
+            }
+        }
+    }
 
 }
 
@@ -123,7 +135,8 @@ extension WeatherViewController: WeatherManagerProtocol {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.tempString
             self.cityLabel.text = weather.cityName
-            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            //self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            self.loadWeatherAnimation(path: weather.conditionAnimation)
         }
     }
     

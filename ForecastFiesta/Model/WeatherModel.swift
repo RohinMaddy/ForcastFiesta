@@ -36,4 +36,25 @@ struct WeatherModel {
             return "cloud"
         }
     }
+    
+    var conditionAnimation: String {
+        switch id {
+        case 200...232:
+            return "bolt"
+        case 300...321:
+            return "cloud-drizzle"
+        case 500...531:
+            return "bolt-rain"
+        case 600...622:
+           return "cloud-snows"
+        case 701...781:
+            return "fog"
+        case 800:
+            return "sun"
+        case 801...804:
+            return "bolt"
+        default:
+            return "cloud"
+        }
+    }
 }

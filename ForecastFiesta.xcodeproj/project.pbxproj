@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1E2C312E09F523003FE0CF /* cloud.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E2C2C2E09F523003FE0CF /* cloud.lottie */; };
+		9B1E2C322E09F523003FE0CF /* bolt.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E2C2A2E09F523003FE0CF /* bolt.lottie */; };
+		9B1E2C332E09F523003FE0CF /* cloud-snows.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E2C2E2E09F523003FE0CF /* cloud-snows.lottie */; };
+		9B1E2C342E09F523003FE0CF /* sun.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E2C302E09F523003FE0CF /* sun.lottie */; };
+		9B1E2C352E09F523003FE0CF /* bolt-rain.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E2C2B2E09F523003FE0CF /* bolt-rain.lottie */; };
+		9B1E2C362E09F523003FE0CF /* fog.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E2C2F2E09F523003FE0CF /* fog.lottie */; };
+		9B1E2C372E09F523003FE0CF /* cloud-drizzle.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 9B1E2C2D2E09F523003FE0CF /* cloud-drizzle.lottie */; };
 		9BAA29E12E06F694006E4C21 /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA29E02E06F694006E4C21 /* Pixel.swift */; };
 		9BAA29E32E083EC6006E4C21 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA29E22E083EC6006E4C21 /* Extensions.swift */; };
 		9BAA29E52E0847AB006E4C21 /* WeatherLoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAA29E42E0847AB006E4C21 /* WeatherLoadingOverlay.swift */; };
-		9BAA29E82E097E05006E4C21 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAA29E72E097E05006E4C21 /* Lottie */; };
-		9BAA29EA2E097E05006E4C21 /* Lottie-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAA29E92E097E05006E4C21 /* Lottie-Dynamic */; };
 		9BD6472E2BDE801700DCC1CA /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6472D2BDE801700DCC1CA /* Keys.swift */; };
 		9BD724BE2BDE5B54002DA989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD724BD2BDE5B54002DA989 /* AppDelegate.swift */; };
 		9BD724C02BDE5B54002DA989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD724BF2BDE5B54002DA989 /* SceneDelegate.swift */; };
@@ -22,9 +27,18 @@
 		9BD724D22BDE790E002DA989 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD724D12BDE790E002DA989 /* WeatherManager.swift */; };
 		9BD724D42BDE7924002DA989 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD724D32BDE7924002DA989 /* WeatherData.swift */; };
 		9BD724D62BDE7932002DA989 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD724D52BDE7932002DA989 /* WeatherModel.swift */; };
+		C0EB36DF4C7B3D1E9FB10B25 /* libPods-ForecastFiesta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B68DB0014D34D802E32F559F /* libPods-ForecastFiesta.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E74ED28766C9A4F4EF38342 /* Pods-ForecastFiesta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForecastFiesta.release.xcconfig"; path = "Target Support Files/Pods-ForecastFiesta/Pods-ForecastFiesta.release.xcconfig"; sourceTree = "<group>"; };
+		9B1E2C2A2E09F523003FE0CF /* bolt.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; name = bolt.lottie; path = ForecastFiesta/Animations/bolt.lottie; sourceTree = SOURCE_ROOT; };
+		9B1E2C2B2E09F523003FE0CF /* bolt-rain.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = "bolt-rain.lottie"; sourceTree = "<group>"; };
+		9B1E2C2C2E09F523003FE0CF /* cloud.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = cloud.lottie; sourceTree = "<group>"; };
+		9B1E2C2D2E09F523003FE0CF /* cloud-drizzle.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cloud-drizzle.lottie"; sourceTree = "<group>"; };
+		9B1E2C2E2E09F523003FE0CF /* cloud-snows.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cloud-snows.lottie"; sourceTree = "<group>"; };
+		9B1E2C2F2E09F523003FE0CF /* fog.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = fog.lottie; sourceTree = "<group>"; };
+		9B1E2C302E09F523003FE0CF /* sun.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = sun.lottie; sourceTree = "<group>"; };
 		9BAA29E02E06F694006E4C21 /* Pixel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
 		9BAA29E22E083EC6006E4C21 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9BAA29E42E0847AB006E4C21 /* WeatherLoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoadingOverlay.swift; sourceTree = "<group>"; };
@@ -40,6 +54,8 @@
 		9BD724D12BDE790E002DA989 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		9BD724D32BDE7924002DA989 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		9BD724D52BDE7932002DA989 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		B68DB0014D34D802E32F559F /* libPods-ForecastFiesta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ForecastFiesta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C71EDD33899949D8A4E90387 /* Pods-ForecastFiesta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForecastFiesta.debug.xcconfig"; path = "Target Support Files/Pods-ForecastFiesta/Pods-ForecastFiesta.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,14 +63,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BAA29E82E097E05006E4C21 /* Lottie in Frameworks */,
-				9BAA29EA2E097E05006E4C21 /* Lottie-Dynamic in Frameworks */,
+				C0EB36DF4C7B3D1E9FB10B25 /* libPods-ForecastFiesta.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		792B15D46D2E8379E715A1F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C71EDD33899949D8A4E90387 /* Pods-ForecastFiesta.debug.xcconfig */,
+				6E74ED28766C9A4F4EF38342 /* Pods-ForecastFiesta.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9B1E2C292E09F502003FE0CF /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9B1E2C2A2E09F523003FE0CF /* bolt.lottie */,
+				9B1E2C2B2E09F523003FE0CF /* bolt-rain.lottie */,
+				9B1E2C2C2E09F523003FE0CF /* cloud.lottie */,
+				9B1E2C2D2E09F523003FE0CF /* cloud-drizzle.lottie */,
+				9B1E2C2E2E09F523003FE0CF /* cloud-snows.lottie */,
+				9B1E2C2F2E09F523003FE0CF /* fog.lottie */,
+				9B1E2C302E09F523003FE0CF /* sun.lottie */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		9BD6472C2BDE7EA700DCC1CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +121,8 @@
 			children = (
 				9BD724BC2BDE5B54002DA989 /* ForecastFiesta */,
 				9BD724BB2BDE5B54002DA989 /* Products */,
+				792B15D46D2E8379E715A1F9 /* Pods */,
+				CC84CA9EA6C2507F5F501562 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +137,7 @@
 		9BD724BC2BDE5B54002DA989 /* ForecastFiesta */ = {
 			isa = PBXGroup;
 			children = (
+				9B1E2C292E09F502003FE0CF /* Animations */,
 				9BD6472F2BDE802F00DCC1CA /* Supporting Files */,
 				9BD724D72BDE7DDE002DA989 /* Controller */,
 				9BD724D82BDE7DEC002DA989 /* View */,
@@ -124,6 +166,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CC84CA9EA6C2507F5F501562 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B68DB0014D34D802E32F559F /* libPods-ForecastFiesta.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,6 +181,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BD724CE2BDE5B55002DA989 /* Build configuration list for PBXNativeTarget "ForecastFiesta" */;
 			buildPhases = (
+				A2EEC9FF35953E8EF070C344 /* [CP] Check Pods Manifest.lock */,
 				9BD724B62BDE5B54002DA989 /* Sources */,
 				9BD724B72BDE5B54002DA989 /* Frameworks */,
 				9BD724B82BDE5B54002DA989 /* Resources */,
@@ -168,9 +219,6 @@
 				Base,
 			);
 			mainGroup = 9BD724B12BDE5B54002DA989;
-			packageReferences = (
-				9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-			);
 			productRefGroup = 9BD724BB2BDE5B54002DA989 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -187,11 +235,43 @@
 			files = (
 				9BD724C72BDE5B55002DA989 /* Assets.xcassets in Resources */,
 				9BD724CA2BDE5B55002DA989 /* Base in Resources */,
+				9B1E2C312E09F523003FE0CF /* cloud.lottie in Resources */,
+				9B1E2C322E09F523003FE0CF /* bolt.lottie in Resources */,
+				9B1E2C332E09F523003FE0CF /* cloud-snows.lottie in Resources */,
+				9B1E2C342E09F523003FE0CF /* sun.lottie in Resources */,
+				9B1E2C352E09F523003FE0CF /* bolt-rain.lottie in Resources */,
+				9B1E2C362E09F523003FE0CF /* fog.lottie in Resources */,
+				9B1E2C372E09F523003FE0CF /* cloud-drizzle.lottie in Resources */,
 				9BD724C52BDE5B54002DA989 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2EEC9FF35953E8EF070C344 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ForecastFiesta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9BD724B62BDE5B54002DA989 /* Sources */ = {
@@ -354,6 +434,7 @@
 		};
 		9BD724CF2BDE5B55002DA989 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C71EDD33899949D8A4E90387 /* Pods-ForecastFiesta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -385,6 +466,7 @@
 		};
 		9BD724D02BDE5B55002DA989 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E74ED28766C9A4F4EF38342 /* Pods-ForecastFiesta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -436,30 +518,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9BAA29E72E097E05006E4C21 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
-		};
-		9BAA29E92E097E05006E4C21 /* Lottie-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BAA29E62E097E05006E4C21 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = "Lottie-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BD724B22BDE5B54002DA989 /* Project object */;
 }

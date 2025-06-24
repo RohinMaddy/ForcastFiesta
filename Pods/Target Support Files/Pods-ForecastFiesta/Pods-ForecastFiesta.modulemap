@@ -1,0 +1,6 @@
+module Pods_ForecastFiesta {
+  umbrella header "Pods-ForecastFiesta-umbrella.h"
+
+  export *
+  module * { export * }
+}
