@@ -75,7 +75,10 @@ struct WeatherManager {
             if let data = data {
                 do {
                     let pixel = try JSONDecoder().decode(Pixel.self, from: data)
-                    self.delegate?.updateWeatherBackgroundImage(imageUrl: pixel.photos[0].src.portrait)
+                    let count = pixel.photos.count
+                    if count != 0 {
+                        self.delegate?.updateWeatherBackgroundImage(imageUrl: pixel.photos[Int.random(in: 0..<count)].src.portrait)
+                    }
                 } catch {
                     self.delegate?.didFailWithError(error: error)
                 }

@@ -44,6 +44,7 @@ class WeatherViewController: UIViewController {
     }
 
     @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
+        searchTextField.endEditing(true)
         locationManager.requestLocation()
         showWeatherLoading()
     }
