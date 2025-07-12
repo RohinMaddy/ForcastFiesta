@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -79,18 +80,24 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J7s-8I-T1t">
                                         <rect key="frame" x="0.0" y="85" width="353" height="350"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uU1-jw-kVL">
-                                                <rect key="frame" x="0.0" y="10" width="348" height="296.66666666666669"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uU1-jw-kVL">
+                                                <rect key="frame" x="0.0" y="10" width="348" height="336.66666666666669"/>
                                                 <subviews>
                                                     <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rot-IZ-Hg4" customClass="LottieAnimationView" customModule="Lottie">
-                                                        <rect key="frame" x="108" y="0.0" width="240" height="150"/>
+                                                        <rect key="frame" x="54" y="0.0" width="240" height="150"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="150" id="Zjz-PA-Wcs"/>
                                                         </constraints>
                                                     </view>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bd-Zz-JP4">
-                                                        <rect key="frame" x="166.66666666666663" y="155" width="181.33333333333337" height="104"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-KJ-DZy">
+                                                        <rect key="frame" x="132.33333333333334" y="150" width="83.666666666666657" height="32.666666666666657"/>
+                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="3bd-Zz-JP4">
+                                                        <rect key="frame" x="93.333333333333329" y="182.66666666666669" width="161.33333333333337" height="104"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="21" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3H2-aI-oMf" userLabel="Temperature Label">
                                                                 <rect key="frame" x="0.0" y="0.0" width="80.666666666666671" height="104"/>
@@ -99,25 +106,34 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Elp-pF-tKk" userLabel="Temperature Label">
-                                                                <rect key="frame" x="80.666666666666657" y="0.0" width="51.333333333333343" height="104"/>
+                                                                <rect key="frame" x="70.666666666666671" y="0.0" width="51.333333333333329" height="104"/>
                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="80"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egb-ro-sQF" userLabel="Temperature Label">
-                                                                <rect key="frame" x="132.00000000000003" y="0.0" width="49.333333333333343" height="104"/>
+                                                                <rect key="frame" x="112.00000000000001" y="0.0" width="49.333333333333329" height="104"/>
                                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="70"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-KJ-DZy">
-                                                        <rect key="frame" x="264.33333333333331" y="264" width="83.666666666666686" height="32.666666666666686"/>
-                                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8i-kd-VXf">
+                                                        <rect key="frame" x="149" y="286.66666666666669" width="50" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="inZ-lr-MJd"/>
+                                                            <constraint firstAttribute="height" constant="50" id="jPa-WJ-9Wa"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="saveLocationButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DNU-ey-xp2"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -152,6 +168,7 @@
                         <outlet property="backgroundImage" destination="pBv-EJ-Ml9" id="5ia-Lc-UHj"/>
                         <outlet property="cityLabel" destination="C2k-KJ-DZy" id="Brc-Lv-FjY"/>
                         <outlet property="labelView" destination="J7s-8I-T1t" id="RBb-27-n4q"/>
+                        <outlet property="saveLocationButton" destination="X8i-kd-VXf" id="ZxC-xD-PYX"/>
                         <outlet property="searchTextField" destination="Mo6-Fe-Ufr" id="nGg-6m-ZGw"/>
                         <outlet property="searchView" destination="pNL-vU-NFd" id="fSK-yd-hOb"/>
                         <outlet property="temperatureLabel" destination="3H2-aI-oMf" id="40w-WY-1PB"/>
@@ -165,6 +182,7 @@
     </scenes>
     <resources>
         <image name="Weather App Placeholder Jun 24 2025" width="1024" height="1536"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="location.circle.fill" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="secondarySystemFillColor">

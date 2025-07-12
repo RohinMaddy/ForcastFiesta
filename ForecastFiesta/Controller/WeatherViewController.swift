@@ -19,6 +19,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var saveLocationButton: UIButton!
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -35,10 +36,10 @@ class WeatherViewController: UIViewController {
         weatherManager.delegate = self
         
         addBlurBackground(to: searchView, style: .systemUltraThinMaterialDark)
-        searchView.roundCorners(radius: 10)
+        searchView.roundCorners(radius: 20)
         
         addBlurBackground(to: labelView, style: .systemUltraThinMaterialDark)
-        labelView.roundCorners(radius: 10)
+        labelView.roundCorners(radius: 20)
         
         showWeatherLoading()
     }
@@ -96,6 +97,8 @@ class WeatherViewController: UIViewController {
         }
     }
 
+    @IBAction func saveLocationButtonClicked(_ sender: Any) {
+    }
 }
 
 extension WeatherViewController: CLLocationManagerDelegate {
