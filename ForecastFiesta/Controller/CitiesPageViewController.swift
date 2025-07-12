@@ -18,6 +18,7 @@ class CitiesPageViewController: UIPageViewController {
     let locationManager = CLLocationManager()
     var weatherManager = WeatherManager()
     var weatherLoadingOverlay: WeatherLoadingOverlay?
+    var currentCity: String?
 
     // MARK: - Lifecycle
 
@@ -32,8 +33,14 @@ class CitiesPageViewController: UIPageViewController {
         delegate = self
         
         weatherManager.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleCitiesChanged), name: .citiesDidUpdate, object: nil)
 
         setupPageControl()
+    }
+    
+    @objc private func handleCitiesChanged() {
+        reloadCitiesAndPages()
     }
     
     private func showPages() {
@@ -77,15 +84,34 @@ class CitiesPageViewController: UIPageViewController {
         return vc
     }
 
-    /// Returns the index of the given WeatherViewController in the cities array
     private func indexOf(_ viewController: UIViewController) -> Int? {
         guard let weatherVC = viewController as? WeatherViewController,
               let city = weatherVC.cityName else { return nil }
 
         return cities.firstIndex(where: { $0.caseInsensitiveCompare(city) == .orderedSame })
     }
+    
+    private func loadCities() {
+        if let currentCity {
+            cities.removeAll()
+            cities.append(currentCity)
+            self.cities.append(contentsOf: CityStorageService.shared.loadCities())
+        }
+    }
+    
+    func reloadCitiesAndPages() {
+        // Reload cities
+        loadCities()
+        
+        pageControl.numberOfPages = cities.count
 
-    // MARK: - Actions
+        // Reset to first page
+        if let firstVC = viewController(at: 0) {
+            setViewControllers([firstVC], direction: .forward, animated: true)
+            pageControl.currentPage = 0
+            currentIndex = 0
+        }
+    }
 
     @objc private func pageControlTapped(_ sender: UIPageControl) {
         let selectedIndex = sender.currentPage
@@ -122,12 +148,8 @@ extension CitiesPageViewController: WeatherManagerProtocol {
     
     func didUpdateWeather(weather: WeatherModel) {
         DispatchQueue.main.async {
-            if self.cities.isEmpty {
-                self.cities.append(weather.cityName)
-            } else {
-                self.cities[0] = weather.cityName
-            }
-            self.cities.append(contentsOf: CityStorageService.shared.loadCities())
+            self.currentCity = weather.cityName
+            self.loadCities()
             self.showPages()
         }
     }
@@ -143,14 +165,12 @@ extension CitiesPageViewController: WeatherManagerProtocol {
 
 extension CitiesPageViewController: UIPageViewControllerDataSource {
 
-    /// Return the view controller *before* the current one, or nil if none.
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = indexOf(viewController) else { return nil }
         return self.viewController(at: index - 1)
     }
 
-    /// Return the view controller *after* the current one, or nil if none.
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = indexOf(viewController) else { return nil }
@@ -172,4 +192,8 @@ extension CitiesPageViewController: UIPageViewControllerDelegate {
             pageControl.currentPage = index
         }
     }
+}
+
+extension Notification.Name {
+    static let citiesDidUpdate = Notification.Name("citiesDidUpdate")
 }

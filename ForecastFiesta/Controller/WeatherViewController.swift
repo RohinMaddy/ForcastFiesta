@@ -118,6 +118,7 @@ class WeatherViewController: UIViewController {
                 CityStorageService.shared.addCity(cityName)
                 saveLocationButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }
+            NotificationCenter.default.post(name: .citiesDidUpdate, object: nil)
         }
     }
 }
