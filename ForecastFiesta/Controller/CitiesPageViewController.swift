@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class CitiesPageViewController: UIPageViewController {
 
@@ -14,19 +15,28 @@ class CitiesPageViewController: UIPageViewController {
     private var cities: [String] = []
     private let pageControl = UIPageControl()
     private var currentIndex = 0
+    let locationManager = CLLocationManager()
+    var weatherManager = WeatherManager()
+    var weatherLoadingOverlay: WeatherLoadingOverlay?
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
 
         dataSource = self
         delegate = self
+        
+        weatherManager.delegate = self
 
         setupPageControl()
-        loadCities()
-
-        // Show first city on launch, if any
+    }
+    
+    private func showPages() {
         if let firstVC = viewController(at: 0) {
             setViewControllers([firstVC], direction: .forward, animated: true)
             pageControl.numberOfPages = cities.count
@@ -50,10 +60,6 @@ class CitiesPageViewController: UIPageViewController {
 
         // Optional: tap on dots to jump pages
         pageControl.addTarget(self, action: #selector(pageControlTapped(_:)), for: .valueChanged)
-    }
-
-    private func loadCities() {
-        cities = CityStorageService.shared.loadCities()
     }
 
     // MARK: - Helpers
@@ -89,6 +95,47 @@ class CitiesPageViewController: UIPageViewController {
         let direction: UIPageViewController.NavigationDirection = selectedIndex > currentIndex ? .forward : .reverse
         currentIndex = selectedIndex
         setViewControllers([vc], direction: direction, animated: true)
+    }
+}
+
+extension CitiesPageViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.fetchWeather(latitude: lat, longitude: lon)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        let alert = UIAlertController(title: "Error", message: "Failed to get location: \(error.localizedDescription)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+    }
+}
+
+extension CitiesPageViewController: WeatherManagerProtocol {
+    
+    func updateWeatherBackgroundImage(imageUrl: String) {
+    }
+    
+    func didUpdateWeather(weather: WeatherModel) {
+        DispatchQueue.main.async {
+            if self.cities.isEmpty {
+                self.cities.append(weather.cityName)
+            } else {
+                self.cities[0] = weather.cityName
+            }
+            self.cities.append(contentsOf: CityStorageService.shared.loadCities())
+            self.showPages()
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        let alert = UIAlertController(title: "Error", message: "Failed to weather data: \(error.localizedDescription)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
 

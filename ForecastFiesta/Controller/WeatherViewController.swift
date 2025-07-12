@@ -32,7 +32,6 @@ class WeatherViewController: UIViewController {
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
         
         searchTextField.delegate = self
         weatherManager.delegate = self
@@ -44,6 +43,17 @@ class WeatherViewController: UIViewController {
         labelView.roundCorners(radius: 20)
         
         showWeatherLoading()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let cityName {
+            weatherManager.fetchWeather(cityName: cityName)
+            if CityStorageService.shared.isCitySaved(cityName) {
+                saveLocationButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else {
+                saveLocationButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
+        }
     }
 
     @IBAction func currentLocationButtonPressed(_ sender: UIButton) {
@@ -152,6 +162,11 @@ extension WeatherViewController: WeatherManagerProtocol {
             self.cityLabel.text = weather.cityName
             self.loadWeatherAnimation(path: weather.conditionAnimation)
             self.cityName = weather.cityName
+            if CityStorageService.shared.isCitySaved(weather.cityName) {
+                self.saveLocationButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            } else {
+                self.saveLocationButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            }
         }
     }
     
