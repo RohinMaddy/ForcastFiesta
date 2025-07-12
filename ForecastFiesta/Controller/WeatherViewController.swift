@@ -25,6 +25,8 @@ class WeatherViewController: UIViewController {
     let locationManager = CLLocationManager()
     var weatherLoadingOverlay: WeatherLoadingOverlay?
     
+    var cityName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,6 +100,15 @@ class WeatherViewController: UIViewController {
     }
 
     @IBAction func saveLocationButtonClicked(_ sender: Any) {
+        if let cityName = cityLabel.text {
+            if CityStorageService.shared.isCitySaved(cityName) {
+                CityStorageService.shared.removeCity(cityName)
+                saveLocationButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            } else {
+                CityStorageService.shared.addCity(cityName)
+                saveLocationButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            }
+        }
     }
 }
 
@@ -139,8 +150,8 @@ extension WeatherViewController: WeatherManagerProtocol {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.tempString
             self.cityLabel.text = weather.cityName
-            //self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.loadWeatherAnimation(path: weather.conditionAnimation)
+            self.cityName = weather.cityName
         }
     }
     
